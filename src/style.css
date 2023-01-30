@@ -1,0 +1,226 @@
+
+#mainFrame {
+    display: flex;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    font-family: 'Courier New', Courier, monospace;
+}
+#sideBar {
+    display: flex;
+    /* padding: 1rem; */
+    flex-direction: column;
+    width: 20%;
+    height: 100vh;
+}
+#projTitle {
+    font-size: large;
+    font-weight: 600;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+}
+#projects {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+#projects .selected {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.sb-option {
+    padding-left: 2rem ;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+#mainView {
+    padding: 1rem;
+    width: 80%;
+    height: 100vh;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+/* #upperView {
+    display: flex;
+}  */  
+#viewTitle {
+    box-sizing: border-box;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    font-size: larger;
+    font-weight: 700;
+}
+.new-todo-btn {
+    background-image: url('./plus-box.svg');
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+.todo-elem {
+    
+    padding: 1rem;
+    font-size: large;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    /* gap: 5rem; */
+    justify-content: space-between;
+}
+#mainView .selected {
+/*     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+ */    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.todo-main {
+    display: flex;
+    gap: 1rem;
+}
+.todo-icon {
+    border: 2px solid green;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+}
+.todo-icon:hover {
+    scale: 1.2;
+}
+.todo-dueDate {
+    border: 0.5px solid black;
+}
+.todo-title {
+    font-weight: 600;
+}
+.todo-elem.done .todo-description {
+
+    text-decoration-line: line-through;
+}
+.todo-elem.done .todo-title {
+    text-decoration-line: line-through;
+}
+.todo-elem.done .todo-dueDate {
+    text-decoration-line: line-through;
+}
+.todo-description {
+    padding-left: 2rem;
+    font-size: medium;
+}
+.icon-flame {
+    border: 2px solid orangered;
+}
+.todo-btns {
+    display: flex;
+    gap: 1rem;
+}
+.btn {
+    width: 2rem;
+    height: 2rem;
+    background-repeat: no-repeat;
+    background-color: white;
+    border: none;
+}
+.todo-btn:hover {
+    background-size: 120%;
+    cursor: pointer;
+}
+.edit-btn {
+    background-image: url('./pencil.svg');
+}
+.del-btn {
+    background-image: url('./delete.svg');
+}
+
+#todoForm {
+    display: none;
+    position: fixed;
+    left: 0%;
+    top: 0%; 
+    height: 100vh;
+    width: 100vw;
+    background-color:rgba(75,85,99, 0.70) ;
+
+    z-index: 8;
+    font-size: 1rem;
+
+}
+#todoFieldset {
+    position: relative;
+    padding: 1rem;
+    margin: 1.5rem;
+    display: grid;
+    grid-template-columns: auto auto;
+    background-color: #f3f4f6;
+    grid-auto-rows: 2rem;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+/*     max-width: 35rem;
+    height: 20.5rem; */
+    width: 50vw;
+    height: 50vh;
+
+    row-gap: 2rem;
+    column-gap: 5rem;
+    font-family: 'Courier New', Courier, monospace;
+    /* font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
+    font-weight: 600;
+    color: #374151;
+    z-index: 9;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 6px 2px 16px 0px rgba(136, 165, 191, 0.48) , -6px -2px 16px 0px rgba(156,163,175, 0.8);
+
+}
+#fieldsetTitle{
+    grid-column: 1 / -1;
+}
+#detailInput {
+    grid-column: 1 / -1;
+}
+
+#dueDateDiv, #checkBoxDiv {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    
+}
+.fieldset-item {
+    height: 2.2rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+}
+.fieldset-item::placeholder {
+    font-style: italic;
+
+}
+.fieldset-label {
+    padding-top: 0.5rem;
+}
+#priorityCheck {
+    justify-self: left;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+.form-button {
+    border-radius: 5px;
+    color: #e5e5e5;
+    height: 2.5rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 600;
+
+    font-size: inherit;
+    border: none;
+    box-shadow: 2px 2px 16px 0px rgba(136, 165, 191, 0.48) , -2px -2px 16px 0px rgba(156,163,175, 0.8);
+    width: auto;
+
+}
+.form-button:hover {
+    filter: brightness(80%);
+    background-size: 120%;
+    cursor: pointer;
+}
+#btnFormCancel {
+    background-color: darkred;
+
+}
+#btnFormSubmit {
+    background-color: darkgreen;
+}

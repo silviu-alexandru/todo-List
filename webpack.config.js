@@ -1,21 +1,25 @@
 //const { dirname } = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
+
 module.exports = {
+    mode: 'development',
     entry: {
         index: './src/index.js',
 
     },
 
     output: {
-        filename: 'main.js',
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
+        clean: true,
     },
     module: {
         rules: [
             {
-                test: /\.css$/i,
-                use: ['style-loader','css-loader'],
+                test: /\.css$/i,        
+                use: ['style-loader', 'css-loader'],        
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,        
@@ -27,4 +31,11 @@ module.exports = {
             },
         ],
     },
+    devtool: 'inline-source-map',
+    plugins: [
+        new HtmlWebpackPlugin({
+            title: 'todo list',
+            template: path.resolve(__dirname, 'src/index.html')
+        }),
+    ],
 };
