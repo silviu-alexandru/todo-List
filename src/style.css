@@ -65,6 +65,7 @@
     display: flex;
     /* gap: 5rem; */
     justify-content: space-between;
+    border-radius: 4px;
 }
 #mainView .selected {
 /*     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
@@ -78,10 +79,11 @@
     border: 2px solid green;
     width: 1rem;
     height: 1rem;
-    border-radius: 50%;
+    border-radius: 10%;
 }
 .todo-icon:hover {
     scale: 1.2;
+    border-width: 3px;
 }
 .todo-dueDate {
     border: 0.5px solid black;
@@ -99,6 +101,12 @@
 .todo-elem.done .todo-dueDate {
     text-decoration-line: line-through;
 }
+.todo-elem.done .todo-icon {
+    background-image: url('./check.svg');
+    background-repeat: no-repeat;
+    /* background-size: 50%; */
+    background-position: center;
+}
 .todo-description {
     padding-left: 2rem;
     font-size: medium;
@@ -111,14 +119,18 @@
     gap: 1rem;
 }
 .btn {
-    width: 2rem;
-    height: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
     background-repeat: no-repeat;
     background-color: white;
+    background-size: 90%;
+    background-position: center;
     border: none;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 10%;
 }
-.todo-btn:hover {
-    background-size: 120%;
+.btn:hover {
+    background-size: 100%;
     cursor: pointer;
 }
 .edit-btn {
