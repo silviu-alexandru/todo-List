@@ -25,7 +25,9 @@
     gap: 0.5rem;
 }
 #projects .selected {
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+/*     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+ */    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
 }
 .sb-option {
     padding-left: 2rem ;
@@ -50,26 +52,35 @@
     font-size: larger;
     font-weight: 700;
 }
-.new-todo-btn {
+#newTodo {
     background-image: url('./plus-box.svg');
     margin-left: 1rem;
     margin-bottom: 1rem;
     cursor: pointer;
+    background-size: 133%;
+    padding: 0px;
 }
+#newTodo:hover {
+    scale:1.05;
+}
+
 .todo-elem {
     
     padding: 1rem;
     font-size: large;
     font-weight: 600;
     cursor: pointer;
-    display: flex;
-    /* gap: 5rem; */
+    display: grid;
+    grid-template-columns: 5fr 1fr 1fr;
+    column-gap: 2rem;
     justify-content: space-between;
     border-radius: 4px;
+    align-items: center;
 }
 #mainView .selected {
-/*     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
- */    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    /*     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+*/    
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 .todo-main {
     display: flex;
@@ -86,7 +97,8 @@
     border-width: 3px;
 }
 .todo-dueDate {
-    border: 0.5px solid black;
+    /* border: 0.5px solid black; */
+    text-align: center;
 }
 .todo-title {
     font-weight: 600;

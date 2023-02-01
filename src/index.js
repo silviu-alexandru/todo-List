@@ -4,8 +4,10 @@ import storageAvailable from './checkStorage' //storageAvailable(type)
 import { saveToStorage, getCategory, getId, closeForm} from './utils';
 import { format, parseISO } from 'date-fns';
 
+const mainView = document.getElementById('mainView');
+
 const {initialTodos} = require('./initialTodos');
-localStorage.removeItem('todos');
+//localStorage.removeItem('todos');
 let todos = JSON.parse(localStorage.getItem('todos'));
 
 if (!todos) {
@@ -60,6 +62,18 @@ todoForm.addEventListener('submit', saveTodo);
 
 
 const projects = document.querySelectorAll('.sb-option');
+
+const unselectTodo = () => {  
+    // e.stopPropagation();         
+    //remove existing buttons; remove 'selected' class
+    const remBtns = document.querySelectorAll('.todo-btns');
+    remBtns.forEach(element => {  
+        element.closest('.todo-elem').classList.remove('selected');
+        element.remove();
+    });
+}
+mainView.addEventListener('click', unselectTodo);
+
 projects.forEach(element => {
     element.addEventListener('click', (e)=>{
         //category = e.target.textContent
@@ -73,7 +87,6 @@ projects.forEach(element => {
 
 const renderTodos = ()=>{
     console.log("rendring..");
-    const mainView = document.getElementById('mainView');
     mainView.innerHTML = '';
     //const upperView = document.createElement('div');
     //upperView.id = 'upperView';
@@ -119,7 +132,7 @@ const renderTodos = ()=>{
             
             const todoMain = document.createElement('div');
             todoMain.classList.add('todo-main');
-            todoMain.append(todoIcon, todoDueDate, todoTitle);
+            todoMain.append(todoIcon, todoTitle);
             
             const todoDetail = document.createElement('div');
             todoDetail.classList.add('todo-description');
@@ -128,6 +141,7 @@ const renderTodos = ()=>{
             innerShell.append(todoMain, todoDetail)
 
             element.append(innerShell);
+            element.append(todoDueDate);
 
             element.addEventListener('click', showTodoButons)
             
@@ -137,13 +151,8 @@ const renderTodos = ()=>{
 }
 
 const showTodoButons = (e) => {
-    //remove existing buttons; remove 'selected' class
-    const remBtns = document.querySelectorAll('.todo-btns');
-    remBtns.forEach(element => {  
-        element.closest('.todo-elem').classList.remove('selected');
-        element.remove();
-    });
-
+    e.stopPropagation();
+    unselectTodo();
     const todoElem = e.target.closest('.todo-elem');
 
     const todoButtons = document.createElement('div');
